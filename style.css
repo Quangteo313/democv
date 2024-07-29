@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #C9DABF;
+    position: fixed; /* Changed from sticky to fixed */
+    top: 0; /* Ensure it's at the top of the viewport */
+    width: 100%; /* Make sure it spans the full width */
+    z-index: 1000;
+    box-shadow: 1px 1px grey;
+}
+
+.header .title {
+    text-align: center;
+}
+
+.header .search-box input {
+    width: 94%;
+    border-radius: 5px;
+}
+
+.header .search-box svg {
+    display: inline-block;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.header .dropdown-list {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.header .dropdown-list li {
+    list-style: none;
+    display: block;
+    position: relative; /* Ensure parent li has position relative */
+}
+
+.header .dropdown-list>li {
+    position: relative;
+    line-height: 63px;
+}
+
+.header .dropdown-list ul {
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+
+.header .dropdown-list li a {
+    text-decoration: none;
+    display: block; /* Make sure a tag takes the full width */
+}
+
+.header .dropdown-list>li:hover {
+    background-color: beige;
+}
+
+.header .dropdown-list>li:hover ul {
+    position: absolute;
+    display: block;
+    top: 63px;
+    left: 0; /* Align the dropdown items with the parent */
+    width: 100%; /* Ensure ul takes the width of the parent li */
+}
+
+.header .dropdown-list>li:hover ul .items {
+    text-transform: uppercase;
+    display: block;
+    background-color: #C9DABF;
+    text-align: center;
+    width: 100%; /* Ensure each item takes the full width of the parent li */
+}
+.items a{
+    color: #000;
+}
+.header .dropdown-list>li:hover ul .items:hover{
+     background-color: aliceblue;
+
+}
+
+/* content */
+/* Existing styles */
+.content {
+    margin-top: 100px;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap; /* Để các ô xuống hàng nếu không đủ chỗ */
+    justify-content: space-between; /* Thêm khoảng cách giữa các cột */
+    margin: 100px auto;
+}
+
+.food-container {
+    display: flex;
+    flex-direction: column; /* Đặt các thành phần con theo chiều dọc */
+    border-radius: 10px;
+    box-shadow: 1px 1px #C9DABF;
+    width: 30%; /* Chia đều không gian giữa các cột */
+    position: relative; /* Để có thể đặt overlay */
+    overflow: hidden; /* Để đảm bảo overlay không tràn ra ngoài */
+    margin-bottom: 20px; /* Khoảng cách giữa các hàng */
+}
+
+.food-container .img, .food-review {
+    width: 100%;
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    height: 200px; /* Đặt chiều cao cố định cho các ảnh */
+    position: relative; /* Để có thể đặt overlay */
+    overflow: hidden;
+}
+
+.img img {
+    width: 100%;
+    height: 100%; /* Đặt chiều cao bằng với chiều cao của thẻ chứa */
+    object-fit: cover; /* Đảm bảo ảnh vừa với thẻ chứa mà không bị méo */
+    border-radius: 16px;
+    transition: all 0.3s ease; /* Thêm hiệu ứng mờ dần */
+}
+
+/* Overlay styles */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(217, 217, 217, 0.5); /* Màu nền làm mờ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Hiệu ứng mờ dần */
+    border-radius: 16px; /* Giữ nguyên đường viền bo tròn */
+}
+
+.overlay-text {
+    color: #1a0101;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.food-container:hover .img img {
+    filter: blur(5px); /* Làm mờ ảnh khi di chuột vào */
+}
+
+.food-container:hover .overlay {
+    opacity: 1; /* Hiển thị overlay khi di chuột vào */
+}
+/* Footer styles */
+.footer {
+    background-color: #C9DABF;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px; /* Đảm bảo footer cách xa nội dung chính */
+    width: 100%; /* Đảm bảo footer chiếm hết chiều ngang */
+}
+
+.footer p {
+    margin: 0;
+    color: #333;
+}
+
+.footer .social-icons {
+    margin-top: 10px;
+}
+
+.footer .social-icons a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+
+.footer .social-icons a:hover {
+    color: #007bff; /* Màu xanh khi hover */
+}
